@@ -12,6 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     color: #333;
+    padding: 20px;
 }
 
 .container {
@@ -19,11 +20,12 @@ body {
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    width: 80%;
+    width: 90%;  /* Reduced for smaller devices */
     max-width: 1200px;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
     padding: 20px;
     border-radius: 10px;
+    flex-direction: row;
 }
 
 .content {
@@ -32,14 +34,14 @@ body {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 6vw;  /* Scales down for smaller screens */
     font-weight: 700;
     color: #444;
 }
 
 p {
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 1.2rem;  /* Uses rem units for scaling */
     color: #777;
 }
 
@@ -53,7 +55,7 @@ form {
 input[type="email"] {
     width: 100%;
     padding: 15px;
-    font-size: 16px;
+    font-size: 1rem;
     border: 2px solid #e6e6e6;
     border-radius: 25px;
     outline: none;
@@ -89,10 +91,116 @@ button img {
 
 .image {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image img {
     width: 100%;
     border-radius: 10px;
     object-fit: cover;
+}
+
+/* Media Queries for responsiveness */
+
+/* Small devices (600px and below) */
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;  /* Stack content and image vertically */
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 8vw;  /* Larger font size for smaller screens */
+    }
+
+    p {
+        font-size: 1rem;  /* Smaller text for smaller screens */
+    }
+
+    .image {
+        margin-top: 20px;  /* Adds some spacing on top for the image */
+    }
+
+    input[type="email"] {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px;
+    }
+
+    button img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Medium devices (601px to 900px) */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .container {
+        flex-direction: column;  /* Stack content and image vertically */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 7vw;  /* Scaled for medium screens */
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .image {
+        margin-top: 20px;
+    }
+
+    input[type="email"] {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    button img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Large devices (900px and above) */
+@media screen and (min-width: 901px) {
+    .container {
+        flex-direction: row;  /* Side-by-side layout for larger screens */
+    }
+
+    h1 {
+        font-size: 48px;  /* Fixed size for large screens */
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .image {
+        margin: 0;
+    }
+
+    input[type="email"] {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+
+    button img {
+        width: 20px;
+        height: 20px;
+    }
 }
